@@ -8,7 +8,7 @@ android:
     - extra
     - platform-tools
     - tools
- - extra-google-google_play_services
+ - extra-google-googleplayservices
     - extra-google-m2repository
     - extra-android-m2repository
     - addon-google_apis-google-19
@@ -20,9 +20,3 @@ deploy:
   skip_cleanup: true
   on:
     tags: true
-notifications:
-  email:
-    recipients:
-    - mezei.alexandra522@gmail.com
-    on_success: always
-    on_failure: always
