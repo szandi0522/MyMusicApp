@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name=".view.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -19,8 +19,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".NewMusicActivity"
-            android:label="@string/title_activity_new_music"
+            android:name=".view.DetailsActivity"
+            android:label="@string/title_activity_details"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".view.NewSongActivity"
+            android:label="@string/title_activity_new_song"
             android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
