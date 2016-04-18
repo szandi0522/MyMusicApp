@@ -1,13 +1,14 @@
-package com.mymusic.mymusicapp;
-
+package com.mymusic.mymusicapp.view;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class DetailsActivity extends AppCompatActivity {
+import com.mymusic.mymusicapp.R;
+
+public class NewSongActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_details);
+        setContentView(R.layout.activity_new_song);
     }
 }
