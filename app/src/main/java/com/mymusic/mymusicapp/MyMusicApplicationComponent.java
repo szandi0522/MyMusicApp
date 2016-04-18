@@ -1,6 +1,7 @@
 package com.mymusic.mymusicapp;
 
 import com.mymusic.mymusicapp.interactor.InteractorModule;
+import com.mymusic.mymusicapp.interactor.MainInteractor;
 import com.mymusic.mymusicapp.model.ModelModule;
 import com.mymusic.mymusicapp.presenter.MainPresenter;
 import com.mymusic.mymusicapp.view.MainActivity;
@@ -20,5 +21,5 @@ public interface MyMusicApplicationComponent {
 
     void inject(MainPresenter mainPresenter);
 
-//    void inject(StringInteractor stringInteractor);
+    void inject(MainInteractor stringInteractor);
 }

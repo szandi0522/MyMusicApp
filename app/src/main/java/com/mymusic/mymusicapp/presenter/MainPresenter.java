@@ -1,5 +1,7 @@
 package com.mymusic.mymusicapp.presenter;
 
+import com.mymusic.mymusicapp.MyMusicApplication;
+import com.mymusic.mymusicapp.interactor.MainInteractor;
 import com.mymusic.mymusicapp.view.MainScreen;
 
 import javax.inject.Inject;
@@ -9,12 +11,12 @@ import javax.inject.Inject;
  */
 public class MainPresenter extends Presenter<MainScreen> {
 
-//    @Inject
-//    public StringInteractor interactor;
+    @Inject
+    public MainInteractor interactor;
 
-//    public MainPresenter() {
-//        MVPApplication.injector.inject(this);
-//    }
+    public MainPresenter() {
+        MyMusicApplication.injector.inject(this);
+    }
 
 //    public void doStuff() {
 //        view.showString(interactor.getString());
