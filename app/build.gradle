@@ -18,6 +18,18 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    productFlavors {
+        mock {
+            applicationId = "com.mymusic.mymusicapp.model.mock"
+            buildConfigField 'String', 'DATA', '"mockData"'
+        }
+        orm {
+            applicationId = "com.mymusic.mymusicapp.model.orm"
+            buildConfigField 'String', 'DATA', '"ormData"'
+
+        }
+    }
 }
 
 dependencies {
