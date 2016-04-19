@@ -9,7 +9,16 @@ import dagger.Provides;
 @Module
 public class InteractorModule {
     @Provides
-    public MainInteractor getStringInteractor() {
+    public MainInteractor getMainInteractor() {
         return new MainInteractor();
+    }
+
+    @Provides
+    public DetailsInteractor getDetailsInteractor() {
+        return new DetailsInteractor();
+    }
+
+    @Provides
+    public NewSongInteractor getNewSongInteractor() {return new NewSongInteractor();
     }
 }
