@@ -19,4 +19,8 @@ public class MainInteractor {
     public String getTitle() {
         return model.getTitle();
     }
+
+    public String getList(String searchText){
+        return model.getSearchResult(searchText);
+    }
 }

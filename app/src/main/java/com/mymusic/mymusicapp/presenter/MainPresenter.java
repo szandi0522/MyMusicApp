@@ -18,8 +18,12 @@ public class MainPresenter extends Presenter<MainScreen> {
         MyMusicApplication.injector.inject(this);
     }
 
-//    public void doStuff() {
-//        view.showString(interactor.getString());
+    public void search(String searchText) {
+        view.showList(interactor.getList(searchText));
+    }
+
+//    public void search(String searchText){
+//        view.showSearchResult(interactor.getList(searchText));
 //    }
 }
 

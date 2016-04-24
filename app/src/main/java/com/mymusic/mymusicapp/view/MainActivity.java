@@ -3,10 +3,24 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
+import com.mymusic.mymusicapp.MyMusicApplication;
 import com.mymusic.mymusicapp.R;
+import com.mymusic.mymusicapp.model.SongDetails;
+import com.mymusic.mymusicapp.presenter.MainPresenter;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.List;
+
+import javax.inject.Inject;
+
+public class MainActivity extends AppCompatActivity implements MainScreen {
+
+    @Inject
+    MainPresenter mainPresenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +37,18 @@ public class MainActivity extends AppCompatActivity {
 //                        .setAction("Action", null).show();
 //            }
 //        });
+        MyMusicApplication.injector.inject(this);
+
+        findViewById(R.id.searchButton).setOnClickListener(new Button.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                EditText searchField = (EditText) findViewById(R.id.searchField);
+                String searchText = searchField.getText().toString();
+                mainPresenter.search(searchText);
+            }
+        });
+
     }
 
     @Override
@@ -45,5 +71,32 @@ public class MainActivity extends AppCompatActivity {
 //        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        mainPresenter.attachView(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        mainPresenter.detachView();
+    }
+
+    @Override
+    public void showList(String s) {
+        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void showSearchResult(List<SongDetails> resultList) {
+
+    }
+
+    @Override
+    public void navigateToNewSongPage() {
+
     }
 }

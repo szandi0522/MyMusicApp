@@ -22,13 +22,14 @@ android {
     productFlavors {
         mock {
             applicationId = "com.mymusic.mymusicapp.model.mock"
-            buildConfigField 'String', 'DATA', '"mockData"'
+            buildConfigField 'String', 'DATAFLAVOR', '"mock"'
         }
-        orm {
-            applicationId = "com.mymusic.mymusicapp.model.orm"
-            buildConfigField 'String', 'DATA', '"ormData"'
+        production {
+            applicationId = "com.mymusic.mymusicapp.model.prod"
+            buildConfigField 'String', 'DATAFLAVOR', '"production"'
 
         }
+
     }
 }
 

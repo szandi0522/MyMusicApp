@@ -76,4 +76,7 @@ public class SongDetails extends SugarRecord {
     }
 
 
+    public String getSearchResult(String searchText){
+        return searchText;
+    }
 }

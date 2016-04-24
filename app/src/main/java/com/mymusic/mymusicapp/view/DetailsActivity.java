@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import com.mymusic.mymusicapp.R;
 
-public class DetailsActivity extends AppCompatActivity {
+public class DetailsActivity extends AppCompatActivity implements DetailsScreen{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
