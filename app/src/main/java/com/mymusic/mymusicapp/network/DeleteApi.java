@@ -1,14 +1,10 @@
 package com.mymusic.mymusicapp.network;
 
-import io.swagger.client.CollectionFormats.*;
-
-
 import retrofit2.Call;
 import retrofit2.http.*;
 
 import okhttp3.RequestBody;
 
-import io.swagger.client.model.Error;
 import java.math.BigDecimal;
 
 import java.util.ArrayList;
