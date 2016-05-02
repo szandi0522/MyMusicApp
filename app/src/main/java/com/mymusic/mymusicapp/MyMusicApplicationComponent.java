@@ -21,7 +21,7 @@ import dagger.Component;
  * Created by mobsoft on 2016. 04. 18..
  */
 @Singleton
-@Component(modules = {ViewModule.class, InteractorModule.class, ModelModule.class})
+@Component(modules = {ViewModule.class, InteractorModule.class, ModelModule.class /*, NetworkModule.class*/})
 public interface MyMusicApplicationComponent {
     void inject(MainActivity mainActivity);
 

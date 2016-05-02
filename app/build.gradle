@@ -21,11 +21,11 @@ android {
     productFlavors {
         mock {
             applicationId = "com.mymusic.mymusicapp.model.mock"
-            buildConfigField 'String', 'DATAFLAVOR', '"mock"'
+            //buildConfigField 'String', 'DATAFLAVOR', '"mock"'
         }
         production {
             applicationId = "com.mymusic.mymusicapp.model.prod"
-            buildConfigField 'String', 'DATAFLAVOR', '"production"'
+            //buildConfigField 'String', 'DATAFLAVOR', '"production"'
 
         }
 
