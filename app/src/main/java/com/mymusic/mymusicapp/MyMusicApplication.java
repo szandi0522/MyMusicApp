@@ -16,4 +16,9 @@ public class MyMusicApplication extends Application{
         super.onCreate();
         injector = DaggerMyMusicApplicationComponent.builder().viewModule(new ViewModule(this)).build();
     }
+
+    public void setInjector(MyMusicApplicationComponent appComponent) {
+        injector = appComponent;
+        injector.inject(this);
+    }
 }

@@ -2,6 +2,7 @@ package com.mymusic.mymusicapp.interactor;
 
 import com.mymusic.mymusicapp.MyMusicApplication;
 import com.mymusic.mymusicapp.model.SongDetails;
+import com.mymusic.mymusicapp.model.prod.OrmDbModel;
 
 import javax.inject.Inject;
 
@@ -10,17 +11,17 @@ import javax.inject.Inject;
  */
 public class MainInteractor {
     @Inject
-    SongDetails model;
+    OrmDbModel model;
 
     public MainInteractor() {
         MyMusicApplication.injector.inject(this);
     }
 
     public String getTitle() {
-        return model.getTitle();
+        return ""/*model.getTitle()*/;
     }
 
     public String getList(String searchText){
-        return model.getSearchResult(searchText);
+        return ""/*model.getSearchResult(searchText)*/;
     }
 }

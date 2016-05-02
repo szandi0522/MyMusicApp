@@ -4,7 +4,7 @@ import com.mymusic.mymusicapp.interactor.DetailsInteractor;
 import com.mymusic.mymusicapp.interactor.InteractorModule;
 import com.mymusic.mymusicapp.interactor.MainInteractor;
 import com.mymusic.mymusicapp.interactor.NewSongInteractor;
-import com.mymusic.mymusicapp.model.ModelModule;
+import com.mymusic.mymusicapp.model.prod.ModelModule;
 import com.mymusic.mymusicapp.presenter.DetailsPresenter;
 import com.mymusic.mymusicapp.presenter.MainPresenter;
 import com.mymusic.mymusicapp.presenter.NewSongPresenter;
@@ -40,4 +40,6 @@ public interface MyMusicApplicationComponent {
     void inject(NewSongPresenter newSongPresenter);
 
     void inject(NewSongInteractor newSongInteractor);
+
+    void inject(MyMusicApplication app);
 }

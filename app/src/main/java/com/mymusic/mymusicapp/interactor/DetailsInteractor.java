@@ -2,6 +2,7 @@ package com.mymusic.mymusicapp.interactor;
 
 import com.mymusic.mymusicapp.MyMusicApplication;
 import com.mymusic.mymusicapp.model.SongDetails;
+import com.mymusic.mymusicapp.model.prod.OrmDbModel;
 
 import java.util.List;
 
@@ -12,7 +13,7 @@ import javax.inject.Inject;
  */
 public class DetailsInteractor {
     @Inject
-    SongDetails model;
+    OrmDbModel model;
 
     public DetailsInteractor() {
         MyMusicApplication.injector.inject(this);
