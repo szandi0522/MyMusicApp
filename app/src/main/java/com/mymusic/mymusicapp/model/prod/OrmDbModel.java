@@ -21,5 +21,13 @@ public class OrmDbModel {
         return "";
     }
 
+    public String deleteSong(int id){
+        return "";
+    }
+
+    public String modifyListItem(SongDetails song){
+        return "";
+    }
+
 }
 

@@ -3,6 +3,7 @@ package com.mymusic.mymusicapp.model;
 import com.orm.SugarRecord;
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -10,7 +11,7 @@ import java.util.Objects;
 /**
  * Created by mobsoft on 2016. 04. 18..
  */
-public class SongDetails extends SugarRecord {
+public class SongDetails extends SugarRecord implements Serializable{
 
     @SerializedName("song_id")
     private Integer songId = null;

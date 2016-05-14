@@ -1,4 +1,5 @@
 package com.mymusic.mymusicapp.view;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -20,6 +21,7 @@ import com.mymusic.mymusicapp.network.mock.SongListMock;
 import com.mymusic.mymusicapp.presenter.MainPresenter;
 import com.orm.SugarContext;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -70,7 +72,6 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         });
 
 
-
     }
 
     @Override
@@ -109,7 +110,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
 
     @Override
     public void showList(String s) {
-        Toast.makeText(this,s,Toast.LENGTH_LONG).show();
+        Toast.makeText(this, s, Toast.LENGTH_LONG).show();
     }
 
     @Override
@@ -120,14 +121,25 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         for (int i = 0; i < resultList.size(); ++i) {
             list.add(resultList.get(i));
         }
-        ((ListView) findViewById(R.id.listView)).setAdapter(
-                new SongDetailsAdapter(this, R.layout.list_item, list));
+//        ((ListView) findViewById(R.id.listView)).setAdapter(
+//                new SongDetailsAdapter(this, R.layout.list_item, list));
+
+        ListView lv = (ListView) findViewById(R.id.listView);
+        lv.setAdapter(new SongDetailsAdapter(this, R.layout.list_item, list));
+        lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position,
+                                    long id) {
+                Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
+                intent.putExtra("SONG", (Serializable)(list.get(position)));
+                startActivity(intent);
+            }
+        });
     }
 
     @Override
     public void navigateToNewSongPage() {
         Intent intent = new Intent(this, NewSongActivity.class);
-        startActivity(intent);
         startActivity(intent);
     }
 }

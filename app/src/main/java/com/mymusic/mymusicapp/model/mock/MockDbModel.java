@@ -40,6 +40,18 @@ public class MockDbModel extends OrmDbModel {
         values.add(song);
         return "Song was added successfully!";
     }
+    public String deleteSong(int id) {
+        int size = values.size();
+        for (int i = (size-1); i >= 0; i--) {
+            if (values.get(i).getSongId() == id) {
+                values.remove(i);
+            }
+        }
+        return "Song was deleted!";
+    }
+    public String modifyListItem(SongDetails song){
+        return "";
+    }
 
 
 }

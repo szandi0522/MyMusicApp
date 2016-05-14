@@ -33,15 +33,15 @@ public class SongListMock {
 
         if (uri.getPath().contains(NetworkConfig.ENDPOINT_PREFIX + "search") && request.method().equals("GET")) {
             String text = "";
-            text= uri.getQueryParameter("searchtext");
+            text = uri.getQueryParameter("searchtext");
 
             if (!isInitialised) {
                 songList.add(testP1);
-                testP1.setSongId((int)(Math.random()*100));
+                testP1.setSongId((int) (Math.random() * 100));
                 songList.add(testP2);
-                testP2.setSongId((int)(Math.random()*100));
+                testP2.setSongId((int) (Math.random() * 100));
                 songList.add(testP3);
-                testP3.setSongId((int)(Math.random()*100));
+                testP3.setSongId((int) (Math.random() * 100));
                 isInitialised = true;
             }
             if (text.equals("")) {
@@ -67,8 +67,8 @@ public class SongListMock {
             String image = uri.getQueryParameter("image");
             String youtube = uri.getQueryParameter("youtube");
 
-            SongDetails test = new SongDetails(title, artist,Integer.parseInt(year),album,image,youtube);
-            test.setSongId((int)(Math.random()*100));
+            SongDetails test = new SongDetails(title, artist, Integer.parseInt(year), album, image, youtube);
+            test.setSongId((int) (Math.random() * 100));
             songList.add(test);
 
             responseString = "";
@@ -100,18 +100,17 @@ public class SongListMock {
                 }
             }
         } else if (uri.getPath().contains(NetworkConfig.ENDPOINT_PREFIX + "delete") && request.method().equals("DELETE")) {
-                String id = uri.getQueryParameter("id");
+            String id = uri.getQueryParameter("id");
 
-                for (int i = 0; i < songList.size(); i++) {
-                    if (songList.get(i).getSongId().equals(Integer.parseInt(id))) {
-                        songList.remove(songList.get(i));
-                        responseString = "";
-                        responseCode = 200;
-                    } else {
-                        responseString = "";
-                        responseCode = 503;
-                    }
+            int size = songList.size();
+            for (int i = (size - 1); i >= 0; i--) {
+                if (songList.get(i).getSongId() == Integer.parseInt(id)) {
+                    songList.remove(i);
+                    responseString = "";
+                    responseCode = 200;
+
                 }
+            }
         } else {
             responseString = "ERROR";
             responseCode = 503;
