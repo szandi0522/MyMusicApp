@@ -32,13 +32,13 @@ public class NewSongInteractor {
     }
 
     public String addNewSongByNetwork(SongDetails song) throws Exception {
-        Response<List<SongDetails>> response = null;
+        Response response = null;
 
         BigDecimal bd = new BigDecimal(song.getYear());
         Call<Void> call = createApi.addPost(song.getTitle(),song.getArtist(),bd,
                 song.getAlbum(),song.getImage(),song.getYoutube());
         try {
-            /*response =*/ call.execute();
+            response = call.execute();
         } catch (Exception e) {
             throw new Exception("Network error on execute with get!");
         }
@@ -46,6 +46,6 @@ public class NewSongInteractor {
             throw new Exception("Network error with get!");
         }
 
-        return /*response.body()*/"";
+        return /*response.body()*/"Song was added successfully by network!";
     }
 }

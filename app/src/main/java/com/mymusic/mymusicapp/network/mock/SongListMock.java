@@ -71,10 +71,12 @@ public class SongListMock {
             test.setSongId((int) (Math.random() * 100));
             songList.add(test);
 
-            responseString = "";
+            responseString = "OK";
             responseCode = 200;
 
         } else if (uri.getPath().contains(NetworkConfig.ENDPOINT_PREFIX + "modify") && request.method().equals("PUT")) {
+
+            boolean wasModfied = false;
             String id = uri.getQueryParameter("id");
             String title = uri.getQueryParameter("title");
             String artist = uri.getQueryParameter("artist");
@@ -92,27 +94,36 @@ public class SongListMock {
                     songList.get(i).setImage(image);
                     songList.get(i).setYoutube(youtube);
 
-                    responseString = "";
-                    responseCode = 200;
-                } else {
-                    responseString = "";
-                    responseCode = 503;
+                    wasModfied = true;
+
                 }
+            }
+            if(wasModfied){
+                responseString = "OK";
+                responseCode = 200;
+            }else{
+                responseString = "ERROR";
+                responseCode = 503;
             }
         } else if (uri.getPath().contains(NetworkConfig.ENDPOINT_PREFIX + "delete") && request.method().equals("DELETE")) {
             String id = uri.getQueryParameter("id");
+            boolean wasDeleted = false;
 
             int size = songList.size();
             for (int i = (size - 1); i >= 0; i--) {
                 if (songList.get(i).getSongId() == Integer.parseInt(id)) {
                     songList.remove(i);
 
-                    responseString = "";
-                    responseCode = 200;
-                } else {
-                    responseString = "";
-                    responseCode = 503;
+                    wasDeleted = true;
                 }
+            }
+            if(wasDeleted){
+                responseString = "OK";
+                responseCode = 200;
+            }else
+            {
+                responseString = "ERROR";
+                responseCode = 503;
             }
         } else {
             responseString = "ERROR";
@@ -125,5 +136,14 @@ public class SongListMock {
     public static void resetList() {
         songList.clear();
         isInitialised = false;
+    }
+    public static void initList(){
+        songList.add(testP1);
+        testP1.setSongId((int) (Math.random() * 100));
+        songList.add(testP2);
+        testP2.setSongId((int) (Math.random() * 100));
+        songList.add(testP3);
+        testP3.setSongId((int) (Math.random() * 100));
+        isInitialised = true;
     }
 }

@@ -40,20 +40,20 @@ public class DetailsInteractor {
     }
 
     public String modifyListItemByNetwork(SongDetails song) throws Exception {
-        Response<List<SongDetails>> response = null;
+        Response response = null;
 
         BigDecimal bdyear = new BigDecimal(song.getYear());
         BigDecimal bdid = new BigDecimal(song.getSongId());
         Call<Void> call = modifyApi.modifyPut(bdid,song.getTitle(),song.getArtist(),bdyear,
                 song.getAlbum(),song.getImage(),song.getYoutube());
         try {
-             call.execute();
+             response = call.execute();
         } catch (Exception e) {
             throw new Exception("Network error on execute with get!");
         }
-//        if (response.code() != 200) {
-//            throw new Exception("Network error with get!");
-//        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with get!");
+        }
 
         return "Songlist was modified!";
     }
@@ -66,35 +66,35 @@ public class DetailsInteractor {
     }
 
     public String deleteListItemByNetwork(int id) throws Exception {
-        Response<List<SongDetails>> response = null;
+        Response response = null;
 
         BigDecimal bd = new BigDecimal(id);
         Call<Void> call = deleteApi.deleteDelete(bd);
         try {
-            call.execute();
+            response = call.execute();
         } catch (Exception e) {
             throw new Exception("Network error on execute with get!");
         }
-//        if (response.code() != 200) {
-//            throw new Exception("Network error with get!");
-//        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with get!");
+        }
 
         return "Songlist was deleted!";
     }
 
     public String deleteListItemByNetwork(long id) throws Exception {
-        Response<List<SongDetails>> response = null;
+        Response response = null;
 
         BigDecimal bd = new BigDecimal(id);
         Call<Void> call = deleteApi.deleteDelete(bd);
         try {
-            call.execute();
+            response = call.execute();
         } catch (Exception e) {
             throw new Exception("Network error on execute with get!");
         }
-//        if (response.code() != 200) {
-//            throw new Exception("Network error with get!");
-//        }
+        if (response.code() != 200) {
+            throw new Exception("Network error with get!");
+        }
 
         return "Songlist was deleted!";
     }
