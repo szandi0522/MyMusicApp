@@ -2,6 +2,9 @@ package com.mymusic.mymusicapp.model;
 
 import com.orm.SugarRecord;
 import com.google.gson.annotations.SerializedName;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**

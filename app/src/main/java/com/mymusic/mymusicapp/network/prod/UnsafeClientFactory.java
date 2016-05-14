@@ -16,7 +16,7 @@ import okhttp3.OkHttpClient;
 /**
  * Created by Máté on 01/05/2016.
  */
-public class UnsafeClientFactory {/*
+public class UnsafeClientFactory {
     public static OkHttpClient.Builder getUnsafeClient() throws KeyManagementException, NoSuchAlgorithmException {
         // Create a trust manager that does not validate certificate chains
         final TrustManager[] trustAllCerts = new TrustManager[]{new X509TrustManager() {
@@ -48,5 +48,5 @@ public class UnsafeClientFactory {/*
         });
 
     }
-*/
+
 }

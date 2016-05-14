@@ -19,11 +19,31 @@ public class MainPresenter extends Presenter<MainScreen> {
     }
 
     public void search(String searchText) {
-        view.showList(interactor.getList(searchText));
+
+        try {
+            view.showSearchResult(interactor.getSongListFromNetwork(searchText));
+        } catch (Exception e) {
+            view.showSearchResult(interactor.getSongListFromDb(searchText));
+            //view.showMessage(e.getMessage());
+        }
+
     }
 
 //    public void search(String searchText){
 //        view.showSearchResult(interactor.getList(searchText));
 //    }
+    public void refreshList(){
+        try {
+            view.showSearchResult(interactor.getSongListFromNetwork(""));
+        } catch (Exception e) {
+            view.showSearchResult(interactor.getSongListFromDb(""));
+            //view.showMessage(e.getMessage());
+        }
+    }
+
+    public void navigatoToAddNewPage(){
+        view.navigateToNewSongPage();
+    }
+
 }
 

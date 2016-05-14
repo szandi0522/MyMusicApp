@@ -5,6 +5,7 @@ import com.mymusic.mymusicapp.interactor.InteractorModule;
 import com.mymusic.mymusicapp.interactor.MainInteractor;
 import com.mymusic.mymusicapp.interactor.NewSongInteractor;
 import com.mymusic.mymusicapp.model.prod.ModelModule;
+import com.mymusic.mymusicapp.network.prod.NetworkModule;
 import com.mymusic.mymusicapp.presenter.DetailsPresenter;
 import com.mymusic.mymusicapp.presenter.MainPresenter;
 import com.mymusic.mymusicapp.presenter.NewSongPresenter;
@@ -21,7 +22,7 @@ import dagger.Component;
  * Created by mobsoft on 2016. 04. 18..
  */
 @Singleton
-@Component(modules = {ViewModule.class, InteractorModule.class, ModelModule.class /*, NetworkModule.class*/})
+@Component(modules = {ViewModule.class, InteractorModule.class, ModelModule.class , NetworkModule.class})
 public interface MyMusicApplicationComponent {
     void inject(MainActivity mainActivity);
 

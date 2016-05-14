@@ -1,18 +1,26 @@
 package com.mymusic.mymusicapp.view;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.Toast;
 
 import com.mymusic.mymusicapp.MyMusicApplication;
 import com.mymusic.mymusicapp.R;
+import com.mymusic.mymusicapp.SongDetailsAdapter;
 import com.mymusic.mymusicapp.model.SongDetails;
+import com.mymusic.mymusicapp.network.mock.SongListMock;
 import com.mymusic.mymusicapp.presenter.MainPresenter;
+import com.orm.SugarContext;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -26,8 +34,8 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-//        setSupportActionBar(toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 //
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +46,9 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
 //            }
 //        });
         MyMusicApplication.injector.inject(this);
+        SugarContext.init(this);
+
+        //mainPresenter.refreshList();
 
         findViewById(R.id.searchButton).setOnClickListener(new Button.OnClickListener() {
 
@@ -48,6 +59,8 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
                 mainPresenter.search(searchText);
             }
         });
+
+
 
     }
 
@@ -60,17 +73,17 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-//        int id = item.getItemId();
-//
-//        //noinspection SimplifiableIfStatement
-//        if (id == R.id.action_settings) {
-//            return true;
-//        }
+        switch (item.getItemId()) {
+            case R.id.action_add_new:
+                mainPresenter.navigatoToAddNewPage();
+                return true;
 
-        return super.onOptionsItemSelected(item);
+            default:
+                // If we got here, the user's action was not recognized.
+                // Invoke the superclass to handle it.
+                return super.onOptionsItemSelected(item);
+
+        }
     }
 
     @Override
@@ -93,10 +106,19 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     @Override
     public void showSearchResult(List<SongDetails> resultList) {
 
+        //Toast.makeText(this,resultList.get(0).getTitle(),Toast.LENGTH_LONG).show();
+        final ArrayList<SongDetails> list = new ArrayList<>();
+        for (int i = 0; i < resultList.size(); ++i) {
+            list.add(resultList.get(i));
+        }
+        ((ListView) findViewById(R.id.listView)).setAdapter(
+                new SongDetailsAdapter(this, R.layout.list_item, list));
     }
 
     @Override
     public void navigateToNewSongPage() {
-
+        Intent intent = new Intent(this, NewSongActivity.class);
+        startActivity(intent);
+        startActivity(intent);
     }
 }

@@ -13,7 +13,7 @@ public class OrmDbModel {
 
     public OrmDbModel(){}
 
-    public List<SongDetails> listSongDetails() {
+    public List<SongDetails> listSongDetails(String text) {
         List<SongDetails> values = SongDetails.listAll(SongDetails.class);
         return values;
     }
