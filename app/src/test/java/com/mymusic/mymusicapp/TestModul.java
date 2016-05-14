@@ -3,6 +3,10 @@ package com.mymusic.mymusicapp;
 import android.content.Context;
 
 import com.mymusic.mymusicapp.model.prod.ModelModule;
+import com.mymusic.mymusicapp.model.prod.OrmDbModel;
+import com.mymusic.mymusicapp.presenter.DetailsPresenter;
+import com.mymusic.mymusicapp.presenter.MainPresenter;
+import com.mymusic.mymusicapp.presenter.NewSongPresenter;
 import com.mymusic.mymusicapp.view.ViewModule;
 
 import dagger.Module;
@@ -27,15 +31,25 @@ public class TestModul {
     public Context provideContext() {
         return viewModule.provideContext();
     }
-/*
+
     @Provides
-    public PeopleDbModel provideLoginPresenter() {
-        return modelModule.providePeopleDbModel();
+    public OrmDbModel provideLoginPresenter() {
+        return modelModule.getOrmDbModel();
     }
 
     @Provides
     public MainPresenter provideMainPresenter() {
-        return viewModule.provideMainPresenter();
+        return viewModule.getMainPresenter();
     }
-    */
+
+    @Provides
+    public DetailsPresenter provideDetailsPresenter() {
+        return viewModule.getDetailsPresenter();
+    }
+    @Provides
+    public NewSongPresenter provideNewSongPresenter() {
+        return viewModule.getNewSongPresenter();
+    }
+
+
 }
