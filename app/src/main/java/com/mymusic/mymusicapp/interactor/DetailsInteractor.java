@@ -23,6 +23,7 @@ public class DetailsInteractor {
 
     @Inject
     DeleteApi deleteApi;
+
     @Inject
     ModifyApi modifyApi;
 
@@ -50,15 +51,14 @@ public class DetailsInteractor {
         } catch (Exception e) {
             throw new Exception("Network error on execute with get!");
         }
-        if (response.code() != 200) {
-            throw new Exception("Network error with get!");
-        }
+//        if (response.code() != 200) {
+//            throw new Exception("Network error with get!");
+//        }
 
-        return "";
+        return "Songlist was modified!";
     }
 
-
-    public String deleteListItem(int id){
+    public String deleteListItem(int id) {
         return model.deleteSong(id);
     }
 
@@ -68,16 +68,14 @@ public class DetailsInteractor {
         BigDecimal bd = new BigDecimal(id);
         Call<Void> call = deleteApi.deleteDelete(bd);
         try {
-            /*response =*/ call.execute();
+            call.execute();
         } catch (Exception e) {
             throw new Exception("Network error on execute with get!");
         }
-        if (response.code() != 200) {
-            throw new Exception("Network error with get!");
-        }
+//        if (response.code() != 200) {
+//            throw new Exception("Network error with get!");
+//        }
 
-        return /*response.body()*/"";
+        return "Songlist was deleted!";
     }
-
-
 }

@@ -106,9 +106,12 @@ public class SongListMock {
             for (int i = (size - 1); i >= 0; i--) {
                 if (songList.get(i).getSongId() == Integer.parseInt(id)) {
                     songList.remove(i);
+
                     responseString = "";
                     responseCode = 200;
-
+                } else {
+                    responseString = "";
+                    responseCode = 503;
                 }
             }
         } else {
