@@ -32,8 +32,23 @@ public class NewSongActivity extends AppCompatActivity implements NewSongScreen{
 
             @Override
             public void onClick(View v) {
-                List<SongDetails> list = new ArrayList<SongDetails>();
-                newSongPresenter.addNewSong(list);
+
+                EditText field = (EditText) findViewById(R.id.titleField);
+                String title = field.getText().toString();
+                field = (EditText) findViewById(R.id.artistField);
+                String artist = field.getText().toString();
+                field = (EditText) findViewById(R.id.yearField);
+                String year = field.getText().toString();
+                field = (EditText) findViewById(R.id.albumField);
+                String album = field.getText().toString();
+                field = (EditText) findViewById(R.id.imageField);
+                String image = field.getText().toString();
+                field = (EditText) findViewById(R.id.youtubeField);
+                String youtube = field.getText().toString();
+
+                SongDetails song = new SongDetails(title,artist,Integer.parseInt(year),album,image,youtube);
+
+                newSongPresenter.addNewSong(song);
             }
         });
 

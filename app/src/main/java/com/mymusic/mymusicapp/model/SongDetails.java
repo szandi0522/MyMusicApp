@@ -36,7 +36,7 @@ public class SongDetails extends SugarRecord {
     public SongDetails(){
     }
 
-    public SongDetails(String title, String artist, int year, String album, String youtubeUrl, String imgUrl) {
+    public SongDetails(String title, String artist, int year, String album, String imgUrl, String youtubeUrl) {
         this.title = title;
         this.artist = artist;
         this.year = year;

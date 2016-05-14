@@ -17,6 +17,9 @@ public class OrmDbModel {
         List<SongDetails> values = SongDetails.listAll(SongDetails.class);
         return values;
     }
+    public String addSong(SongDetails song){
+        return "";
+    }
 
 }
 

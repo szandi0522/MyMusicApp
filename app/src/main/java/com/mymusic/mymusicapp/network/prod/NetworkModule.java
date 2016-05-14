@@ -1,5 +1,6 @@
 package com.mymusic.mymusicapp.network.prod;
 
+import com.mymusic.mymusicapp.network.CreateApi;
 import com.mymusic.mymusicapp.network.GsonHelper;
 import com.mymusic.mymusicapp.network.NetworkConfig;
 import com.mymusic.mymusicapp.network.SearchApi;
@@ -49,6 +50,12 @@ public class NetworkModule {
     @Singleton
     public SearchApi provideDefaultApi(Retrofit retrofit) {
         return retrofit.create(SearchApi.class);
+    }
+
+    @Provides
+    @Singleton
+    public CreateApi provideCreatetApi(Retrofit retrofit) {
+        return retrofit.create(CreateApi.class);
     }
 
 }

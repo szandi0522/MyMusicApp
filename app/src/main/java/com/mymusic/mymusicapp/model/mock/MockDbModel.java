@@ -35,4 +35,11 @@ public class MockDbModel extends OrmDbModel {
         return result;
     }
 
+    public String addSong(SongDetails song){
+        song.setSongId((int)(Math.random()*100));
+        values.add(song);
+        return "Song was added successfully!";
+    }
+
+
 }

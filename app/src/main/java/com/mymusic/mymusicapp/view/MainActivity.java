@@ -61,6 +61,15 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         });
 
 
+        findViewById(R.id.addButton).setOnClickListener(new Button.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                mainPresenter.navigatoToAddNewPage();
+            }
+        });
+
+
 
     }
 
