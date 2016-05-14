@@ -61,8 +61,28 @@ public class DetailsInteractor {
     public String deleteListItem(int id) {
         return model.deleteSong(id);
     }
+    public String deleteListItem(long id) {
+        return model.deleteSong(id);
+    }
 
     public String deleteListItemByNetwork(int id) throws Exception {
+        Response<List<SongDetails>> response = null;
+
+        BigDecimal bd = new BigDecimal(id);
+        Call<Void> call = deleteApi.deleteDelete(bd);
+        try {
+            call.execute();
+        } catch (Exception e) {
+            throw new Exception("Network error on execute with get!");
+        }
+//        if (response.code() != 200) {
+//            throw new Exception("Network error with get!");
+//        }
+
+        return "Songlist was deleted!";
+    }
+
+    public String deleteListItemByNetwork(long id) throws Exception {
         Response<List<SongDetails>> response = null;
 
         BigDecimal bd = new BigDecimal(id);

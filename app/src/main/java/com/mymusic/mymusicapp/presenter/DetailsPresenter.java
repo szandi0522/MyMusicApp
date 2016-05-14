@@ -37,4 +37,11 @@ public class DetailsPresenter extends Presenter<DetailsScreen> {
             view.showDeleteMessage(interactor.deleteListItem(id));
         }
     }
+    public void delete(long id) {
+        try {
+            view.showDeleteMessage(interactor.deleteListItemByNetwork(id));
+        } catch (Exception e) {
+            view.showDeleteMessage(interactor.deleteListItem(id));
+        }
+    }
 }

@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.mymusic.mymusicapp.BuildConfig;
 import com.mymusic.mymusicapp.MyMusicApplication;
 import com.mymusic.mymusicapp.R;
 import com.mymusic.mymusicapp.model.SongDetails;
@@ -28,6 +29,7 @@ public class DetailsActivity extends AppCompatActivity implements DetailsScreen 
 
         Intent i = getIntent();
         selectedSong = (SongDetails) i.getSerializableExtra("SONG");
+        selectedSong.setId((long)i.getLongExtra("ID",0));
 
         EditText field = (EditText) findViewById(R.id.titleField);
         field.setText(selectedSong.getTitle());
@@ -46,7 +48,13 @@ public class DetailsActivity extends AppCompatActivity implements DetailsScreen 
 
             @Override
             public void onClick(View v) {
-                detailsPresenter.delete(selectedSong.getSongId());
+
+                if (BuildConfig.FLAVOR.equals("mock")) {
+                    detailsPresenter.delete(selectedSong.getSongId());
+                } else {
+                    long id = selectedSong.getId();
+                    detailsPresenter.delete(id);
+                }
             }
         });
 

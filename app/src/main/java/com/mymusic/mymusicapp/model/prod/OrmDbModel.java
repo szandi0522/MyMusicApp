@@ -16,7 +16,7 @@ public class OrmDbModel {
 
     public List<SongDetails> listSongDetails(String text) {
         List<SongDetails> values = new ArrayList<SongDetails>();
-        if(text == "") {
+        if(text.equals("")) {
             values = SongDetails.listAll(SongDetails.class);
         }else{
             values = SongDetails.find(SongDetails.class, "title = ? or artist = ?", text, text);
@@ -28,7 +28,7 @@ public class OrmDbModel {
         return "Song was added to the db!";
     }
 
-    public String deleteSong(int id){
+    public String deleteSong(long id){
         SongDetails song = SongDetails.findById(SongDetails.class, id);
         song.delete();
         return "Song was deleted from the db!";
@@ -37,6 +37,7 @@ public class OrmDbModel {
     public String modifyListItem(SongDetails song){
         SongDetails updatedSong = SongDetails.findById(SongDetails.class, song.getId());
         updatedSong = song;
+        song.delete();
         updatedSong.save();
 
         return "Song was modified in the db!";

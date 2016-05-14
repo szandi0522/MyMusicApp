@@ -132,6 +132,7 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
                                     long id) {
                 Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
                 intent.putExtra("SONG", (Serializable)(list.get(position)));
+                intent.putExtra("ID",list.get(position).getId());
                 startActivity(intent);
             }
         });
