@@ -37,11 +37,11 @@ public class SongListMock {
 
             if (!isInitialised) {
                 songList.add(testP1);
-                testP1.setSongId(Integer.parseInt(UUID.randomUUID().toString()));
+                testP1.setSongId((int)(Math.random()*100));
                 songList.add(testP2);
-                testP2.setSongId(Integer.parseInt(UUID.randomUUID().toString()));
+                testP2.setSongId((int)(Math.random()*100));
                 songList.add(testP3);
-                testP3.setSongId(Integer.parseInt(UUID.randomUUID().toString()));
+                testP3.setSongId((int)(Math.random()*100));
                 isInitialised = true;
             }
             if (text.equals("")) {
@@ -68,7 +68,7 @@ public class SongListMock {
             String youtube = uri.getQueryParameter("youtube");
 
             SongDetails test = new SongDetails(title, artist,Integer.parseInt(year),album,image,youtube);
-            test.setSongId(Integer.parseInt(UUID.randomUUID().toString()));
+            test.setSongId((int)(Math.random()*100));
             songList.add(test);
 
             responseString = "";

@@ -4,6 +4,6 @@
     <string name="title_activity_new_song">NewSongActivity</string>
     <string name="title_activity_details">DetailsActivity</string>
     <string name="action_main_title">MyMusicApp</string>
-    <string name="action_add">Add new</string>
+    <string name="action_add">Add</string>
 
 </resources>
