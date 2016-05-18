@@ -20,9 +20,9 @@ public class SongListMock {
     static List<SongDetails> songList = new ArrayList<>();
     static boolean isInitialised = false;
 
-    public static SongDetails testP1 = new SongDetails("Test1", "Test1", 2011, "", "", "");
-    public static SongDetails testP2 = new SongDetails("Test2", "Test2", 2015, "", "", "");
-    public static SongDetails testP3 = new SongDetails("Test3", "Test3", 2014, "", "", "");
+    public static SongDetails testS1 = new SongDetails("TestTitle1","TestArtist1",2015, "TestAlbum1","","");
+    public static SongDetails testS2 = new SongDetails("TestTitle2", "TestArtist2", 2011, "TestAlbum2", "", "");
+    public static SongDetails testS3 = new SongDetails("TestTitle3", "TestArtist3", 2014, "TestAlbum3", "", "");
 
     public static Response process(Request request) {
         Uri uri = Uri.parse(request.url().toString());
@@ -36,12 +36,12 @@ public class SongListMock {
             text = uri.getQueryParameter("searchtext");
 
             if (!isInitialised) {
-                songList.add(testP1);
-                testP1.setSongId((int) (Math.random() * 100));
-                songList.add(testP2);
-                testP2.setSongId((int) (Math.random() * 100));
-                songList.add(testP3);
-                testP3.setSongId((int) (Math.random() * 100));
+                songList.add(testS1);
+                testS1.setSongId((int) (Math.random() * 100));
+                songList.add(testS2);
+                testS2.setSongId((int) (Math.random() * 100));
+                songList.add(testS3);
+                testS3.setSongId((int) (Math.random() * 100));
                 isInitialised = true;
             }
             if (text.equals("")) {
@@ -138,12 +138,12 @@ public class SongListMock {
         isInitialised = false;
     }
     public static void initList(){
-        songList.add(testP1);
-        testP1.setSongId((int) (Math.random() * 100));
-        songList.add(testP2);
-        testP2.setSongId((int) (Math.random() * 100));
-        songList.add(testP3);
-        testP3.setSongId((int) (Math.random() * 100));
+        songList.add(testS1);
+        testS1.setSongId((int) (Math.random() * 100));
+        songList.add(testS2);
+        testS2.setSongId((int) (Math.random() * 100));
+        songList.add(testS3);
+        testS3.setSongId((int) (Math.random() * 100));
         isInitialised = true;
     }
 }

@@ -43,7 +43,7 @@ public class NewSongInteractor {
             throw new Exception("Network error on execute with get!");
         }
         if (response.code() != 200) {
-            throw new Exception("Network error with get!");
+            throw new Exception("Network error with add!");
         }
 
         return /*response.body()*/"Song was added successfully by network!";

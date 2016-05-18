@@ -38,19 +38,10 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//
-//        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
-//            }
-//        });
+
         MyMusicApplication.injector.inject(this);
         SugarContext.init(this);
 
-        //mainPresenter.refreshList();
 
         findViewById(R.id.searchButton).setOnClickListener(new Button.OnClickListener() {
 
@@ -63,21 +54,12 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
         });
 
 
-        findViewById(R.id.addButton).setOnClickListener(new Button.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                mainPresenter.navigatoToAddNewPage();
-            }
-        });
-
-
     }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-//        getMenuInflater().inflate(R.menu.menu_main, menu);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -131,8 +113,8 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
             public void onItemClick(AdapterView<?> parent, View view, int position,
                                     long id) {
                 Intent intent = new Intent(getApplicationContext(), DetailsActivity.class);
-                intent.putExtra("SONG", (Serializable)(list.get(position)));
-                intent.putExtra("ID",list.get(position).getId());
+                intent.putExtra("SONG", (Serializable) (list.get(position)));
+                intent.putExtra("ID", list.get(position).getId());
                 startActivity(intent);
             }
         });
@@ -142,5 +124,11 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     public void navigateToNewSongPage() {
         Intent intent = new Intent(this, NewSongActivity.class);
         startActivity(intent);
+    }
+    @Override
+    public void onResume(){
+        super.onResume();
+        mainPresenter.search("");
+
     }
 }

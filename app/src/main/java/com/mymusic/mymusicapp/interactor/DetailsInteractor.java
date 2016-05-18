@@ -49,10 +49,10 @@ public class DetailsInteractor {
         try {
              response = call.execute();
         } catch (Exception e) {
-            throw new Exception("Network error on execute with get!");
+            throw new Exception("Network error on execute with modify!");
         }
         if (response.code() != 200) {
-            throw new Exception("Network error with get!");
+            throw new Exception("Network error with modify!");
         }
 
         return "Songlist was modified!";
@@ -73,10 +73,10 @@ public class DetailsInteractor {
         try {
             response = call.execute();
         } catch (Exception e) {
-            throw new Exception("Network error on execute with get!");
+            throw new Exception("Network error on execute with delete!");
         }
         if (response.code() != 200) {
-            throw new Exception("Network error with get!");
+            throw new Exception("Network error with delete!");
         }
 
         return "Songlist was deleted!";
@@ -93,7 +93,7 @@ public class DetailsInteractor {
             throw new Exception("Network error on execute with get!");
         }
         if (response.code() != 200) {
-            throw new Exception("Network error with get!");
+            throw new Exception("Network error with delete!");
         }
 
         return "Songlist was deleted!";
