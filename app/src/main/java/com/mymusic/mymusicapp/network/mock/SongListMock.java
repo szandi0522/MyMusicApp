@@ -20,9 +20,9 @@ public class SongListMock {
     static List<SongDetails> songList = new ArrayList<>();
     static boolean isInitialised = false;
 
-    public static SongDetails testS1 = new SongDetails("TestTitle1","TestArtist1",2015, "TestAlbum1","","");
-    public static SongDetails testS2 = new SongDetails("TestTitle2", "TestArtist2", 2011, "TestAlbum2", "", "");
-    public static SongDetails testS3 = new SongDetails("TestTitle3", "TestArtist3", 2014, "TestAlbum3", "", "");
+    public static SongDetails testS1 = new SongDetails("Can't Stop The Feeling","Justin Timberlake",2016, "Album?","","");
+    public static SongDetails testS2 = new SongDetails("Firework", "Katy Perry", 2011, "", "", "");
+    public static SongDetails testS3 = new SongDetails("HAPPY", "Pharrel Williams", 2014, "Album?", "", "");
 
     public static Response process(Request request) {
         Uri uri = Uri.parse(request.url().toString());

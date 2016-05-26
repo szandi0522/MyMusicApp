@@ -33,18 +33,32 @@ public class NewSongActivity extends AppCompatActivity implements NewSongScreen{
             @Override
             public void onClick(View v) {
 
-                EditText field = (EditText) findViewById(R.id.titleField);
-                String title = field.getText().toString();
-                field = (EditText) findViewById(R.id.artistField);
-                String artist = field.getText().toString();
-                field = (EditText) findViewById(R.id.yearField);
-                String year = field.getText().toString();
-                field = (EditText) findViewById(R.id.albumField);
+                EditText titleField = (EditText) findViewById(R.id.titleField);
+                String title = titleField.getText().toString();
+                EditText artField = (EditText) findViewById(R.id.artistField);
+                String artist = artField.getText().toString();
+                EditText yearField = (EditText) findViewById(R.id.yearField);
+                String year = yearField.getText().toString();
+
+                EditText field = (EditText) findViewById(R.id.albumField);
                 String album = field.getText().toString();
                 field = (EditText) findViewById(R.id.imageField);
                 String image = field.getText().toString();
                 field = (EditText) findViewById(R.id.youtubeField);
                 String youtube = field.getText().toString();
+
+                if(title.equalsIgnoreCase("")){
+                    titleField.setError("Field is required!");
+                    return;
+                }
+                if(artist.equalsIgnoreCase("")){
+                    artField.setError("Field is required!");
+                    return;
+                }
+                if(year.equalsIgnoreCase("")){
+                    yearField.setError("Field is required!");
+                    return;
+                }
 
                 SongDetails song = new SongDetails(title,artist,Integer.parseInt(year),album,image,youtube);
 

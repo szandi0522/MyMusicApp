@@ -71,7 +71,7 @@ public class MyMusicUnitTests {
     public void mockSearchWithNoResultTest() throws Exception {
         SongListMock.resetList();
         if (BuildConfig.FLAVOR == "mock") {
-            String searchText = "ak";
+            String searchText = "aky";
             List<SongDetails> s = mainInteractor.getSongListFromNetwork(searchText);
 
             assertEquals(s.size(),0);
@@ -82,7 +82,7 @@ public class MyMusicUnitTests {
     public void mockSearchWithResultTest() throws Exception {
         SongListMock.resetList();
         if (BuildConfig.FLAVOR == "mock") {
-            String searchText = "2";
+            String searchText = "stop";
             List<SongDetails> s = mainInteractor.getSongListFromNetwork(searchText);
 
             assertEquals(s.size(),1);
