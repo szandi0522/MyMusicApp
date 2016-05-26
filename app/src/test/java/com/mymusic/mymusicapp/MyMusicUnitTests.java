@@ -86,7 +86,7 @@ public class MyMusicUnitTests {
             List<SongDetails> s = mainInteractor.getSongListFromNetwork(searchText);
 
             assertEquals(s.size(),1);
-            assertEquals(s.get(0), SongListMock.testS2);
+            assertEquals(s.get(0), SongListMock.testS1);
         }
     }
     @Test
