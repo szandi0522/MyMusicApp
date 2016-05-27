@@ -10,6 +10,10 @@
         android:supportsRtl="true"
         android:name=".MyMusicApplication">
 
+        <uses-permission android:name="android.permission.INTERNET"/>
+        <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+
+
 
         <activity
             android:name=".view.MainActivity"
@@ -36,6 +40,10 @@
         <meta-data android:name="VERSION" android:value="1" />
         <meta-data android:name="QUERY_LOG" android:value="true" />
         <meta-data android:name="DOMAIN_PACKAGE_NAME" android:value="com.mymusic.mymusicapp.model" />
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="c5c451f0f8020e1e206c67e1b583742c09c5463b" />
     </application>
 
+    <uses-permission android:name="android.permission.INTERNET" />
 </manifest>

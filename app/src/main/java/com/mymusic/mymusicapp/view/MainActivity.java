@@ -25,9 +25,16 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.google.android.gms.analytics.Tracker;
+import com.google.android.gms.analytics.HitBuilders;
+import android.util.Log;
+
 import javax.inject.Inject;
 
 public class MainActivity extends AppCompatActivity implements MainScreen {
+
+    private Tracker mTracker;
+    private static final String TAG = "MainActivity";
 
     @Inject
     MainPresenter mainPresenter;
@@ -36,6 +43,10 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        MyMusicApplication application = (MyMusicApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -129,6 +140,10 @@ public class MainActivity extends AppCompatActivity implements MainScreen {
     public void onResume(){
         super.onResume();
         mainPresenter.search("");
+
+        Log.i(TAG, "Setting screen name: " + TAG);
+        mTracker.setScreenName("Image~" + TAG);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
 
     }
 }

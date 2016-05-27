@@ -1,11 +1,14 @@
 package com.mymusic.mymusicapp.view;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 import com.mymusic.mymusicapp.MyMusicApplication;
 import com.mymusic.mymusicapp.R;
 import com.mymusic.mymusicapp.model.SongDetails;
@@ -21,12 +24,19 @@ public class NewSongActivity extends AppCompatActivity implements NewSongScreen{
     @Inject
     NewSongPresenter newSongPresenter;
 
+    private Tracker mTracker;
+    private static final String TAG = "NewSongActivity";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_song);
 
         MyMusicApplication.injector.inject(this);
+
+        MyMusicApplication application = (MyMusicApplication) getApplication();
+        mTracker = application.getDefaultTracker();
+
 
         findViewById(R.id.addButton).setOnClickListener(new Button.OnClickListener() {
 
@@ -85,5 +95,15 @@ public class NewSongActivity extends AppCompatActivity implements NewSongScreen{
     @Override
     public void showMessageToast(String message) {
         Toast.makeText(NewSongActivity.this, message, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onResume(){
+        super.onResume();
+
+        Log.i(TAG, "Setting screen name: " + TAG);
+        mTracker.setScreenName("Image~" + TAG);
+        mTracker.send(new HitBuilders.ScreenViewBuilder().build());
+
     }
 }
