@@ -12,4 +12,5 @@ public interface MainScreen {
     public void showList(String s);
     public void showSearchResult(List<SongDetails> resultList);
     public void navigateToNewSongPage();
+
 }

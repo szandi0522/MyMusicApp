@@ -1,0 +1,38 @@
+{
+  "project_info": {
+    "project_number": "79732651569",
+    "project_id": "mymusicapplication-68ce0"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:79732651569:android:dbf1798f6c16f6d7",
+        "android_client_info": {
+          "package_name": "com.mymusic.mymusicapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBvqdSUPCBZBU8Gx52gxkUrszDYggWxkec"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 2,
+          "analytics_property": {
+            "tracking_id": "UA-78428428-1"
+          }
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -23,8 +23,13 @@ public class NewSongPresenter extends Presenter<NewSongScreen>{
         MyMusicApplication.injector.inject(this);
     }
 
-    public void addNewSong(List<SongDetails> newSong){
-        view.showMessageToast(interactor.addNewSong(newSong));
+    public void addNewSong(SongDetails newSong){
+
+        try {
+            view.showMessageToast(interactor.addNewSongByNetwork(newSong));
+        } catch (Exception e) {
+            view.showMessageToast(interactor.addNewSongToDb(newSong));
+        }
     }
 
 }

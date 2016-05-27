@@ -23,7 +23,8 @@
             android:layout_height="0dp"
             android:id="@+id/imageView"
             android:layout_gravity="center_horizontal"
-            android:layout_weight="5" />
+            android:layout_weight="5"
+            android:src="@mipmap/no_image" />
 
         <LinearLayout
         android:orientation="horizontal"
@@ -44,7 +45,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText"
+            android:id="@+id/titleField"
             android:layout_marginLeft="10dp"
             android:layout_gravity="center"
             android:layout_weight="3" />
@@ -69,7 +70,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText2"
+            android:id="@+id/artistField"
             android:layout_gravity="center"
             android:layout_weight="3"
             android:layout_marginLeft="10dp" />
@@ -94,8 +95,9 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText3"
+            android:id="@+id/yearField"
             android:layout_gravity="center|left"
+            android:inputType="number"
             android:layout_weight="3"
             android:layout_marginLeft="10dp" />
 
@@ -119,7 +121,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText4"
+            android:id="@+id/albumField"
             android:layout_gravity="center"
             android:layout_weight="3"
             android:layout_marginLeft="10dp" />
@@ -144,7 +146,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText5"
+            android:id="@+id/youtubeField"
             android:layout_gravity="center"
             android:layout_weight="3"
             android:layout_marginLeft="10dp" />
@@ -170,7 +172,7 @@
         <EditText
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:id="@+id/editText6"
+            android:id="@+id/imageField"
             android:layout_gravity="center"
             android:layout_weight="3"
             android:layout_marginLeft="10dp" />
@@ -190,7 +192,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Modify"
-                android:id="@+id/button4"
+                android:id="@+id/modifyButton"
                 android:layout_gravity="right"
                 android:layout_weight="0"
                 android:layout_marginRight="10dp" />
@@ -199,7 +201,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Delete"
-                android:id="@+id/button3"
+                android:id="@+id/deleteButton"
                 android:layout_weight="0" />
         </LinearLayout>
 
